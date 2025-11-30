@@ -4,9 +4,6 @@ Theatre API is a Django web application for managing plays, performances, reserv
 Users can browse the repertoire, check the schedule, reserve seats, and manage their bookings.
 
 
-## 🚀 Deployed Project
-You can view the live version here: [Kitchen Service on Render](https://kitchen-service-jk0h.onrender.com)
-
 ---
 
 ## 🧾 Description
