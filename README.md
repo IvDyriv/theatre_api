@@ -134,7 +134,8 @@ Located in `docs/`
    cd theatre_api
 
 2. Create .env file
-   SECRET_KEY=your-secret-key
+   
+  SECRET_KEY=your-secret-key
   DEBUG=True
   ALLOWED_HOSTS=127.0.0.1,localhost
   
