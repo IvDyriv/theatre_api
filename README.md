@@ -3,11 +3,6 @@
 Theatre API is a Django web application for managing plays, performances, reservations, and tickets.  
 Users can browse the repertoire, check the schedule, reserve seats, and manage their bookings.
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 24718763f616fe17d0e83bfcd7c071a2dedb182a
----
 
 ## 🧾 Description
 
@@ -139,15 +134,16 @@ Located in `docs/`
    cd theatre_api
 
 2. Create .env file
-   SECRET_KEY=django-insecure-4rih*ul_j3h+1!ecs1teivrfp!^fvj
-   DEBUG=True
-   ALLOWED_HOSTS=127.0.0.1,localhost
+  SECRET_KEY=your-secret-key
+  DEBUG=True
+  ALLOWED_HOSTS=127.0.0.1,localhost
+  
+  POSTGRES_DB=theatre_db
+  POSTGRES_USER=theatre_user
+  POSTGRES_PASSWORD=your-password
+  POSTGRES_HOST=db
+  POSTGRES_PORT=5432
 
-   POSTGRES_DB=theatre_db
-   POSTGRES_USER=theatre_user
-   POSTGRES_PASSWORD=theatre_pass
-   POSTGRES_HOST=db
-   POSTGRES_PORT=5432
 
 3. Build and run containers
    docker-compose up --build
