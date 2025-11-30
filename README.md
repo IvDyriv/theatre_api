@@ -3,6 +3,10 @@
 Theatre API is a Django web application for managing plays, performances, reservations, and tickets.  
 Users can browse the repertoire, check the schedule, reserve seats, and manage their bookings.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 24718763f616fe17d0e83bfcd7c071a2dedb182a
 ---
 
 ## 🧾 Description
