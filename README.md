@@ -135,7 +135,7 @@ Located in `docs/`
 🛠️ Installation & Usage
 
 1. Clone the repository
-   git clone https://github.com/your-username/theatre_api.git
+   git clone https://github.com/IvDyriv/theatre_api)
    cd theatre_api
 
 2. Create .env file
