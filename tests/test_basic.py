@@ -57,3 +57,4 @@ def test_login_url(client):
     url = reverse("login")
     response = client.get(url)
     assert response.status_code == 200
+
