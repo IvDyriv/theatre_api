@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Список вистав{% endblock %}
+
+{% block content %}
+<h2>Список вистав</h2>
+
+<ul>
+    {% for play in plays %}
+        <li>
+            <strong>{{ play.title }}</strong><br>
+            {{ play.description }}<br>
+            Жанри:
+            {% for genre in play.genres.all %}
+                {{ genre.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </li>
+    {% empty %}
+        <li>Немає доступних вистав</li>
+    {% endfor %}
+</ul>
+
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <p class="{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}

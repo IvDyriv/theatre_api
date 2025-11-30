@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Мої бронювання{% endblock %}
+
+{% block content %}
+<h2>Мої заброньовані вистави</h2>
+
+<ul>
+    {% for reservation in reservations %}
+        <li>
+            <strong>Бронювання №{{ reservation.id }}</strong><br>
+            Квитки:
+            <ul>
+                {% for ticket in reservation.tickets.all %}
+                    <li>
+                        {{ ticket.performance.play.title }} —
+                        Зал: {{ ticket.performance.theatre_hall.name }},
+                        Час: {{ ticket.performance.show_time }},
+                        Ряд {{ ticket.row }}, місце {{ ticket.seat }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% empty %}
+        <li>У вас ще немає бронювань</li>
+    {% endfor %}
+</ul>
+{% endblock %}

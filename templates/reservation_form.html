@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Бронювання квитка{% endblock %}
+
+{% block content %}
+<h2>Забронювати квиток</h2>
+
+{# 🔴 Повідомлення про помилку #}
+{% if error %}
+    <div style="color: red; font-weight: bold; margin-bottom: 15px;">
+        {{ error }}
+    </div>
+{% endif %}
+
+{# 🟢 Повідомлення про успіх #}
+{% if success %}
+    <div style="color: green; font-weight: bold; margin-bottom: 15px;">
+        {{ success }}
+    </div>
+{% endif %}
+
+<form method="post" action="{% url 'make_reservation' %}">
+    {% csrf_token %}
+
+    <label for="performance">Виступ:</label>
+    <select name="performance" id="performance" required>
+        {% for perf in performances %}
+            <option value="{{ perf.id }}">
+                {{ perf.play.title }} — {{ perf.theatre_hall.name }} — {{ perf.show_time }}
+            </option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label for="row">Ряд:</label>
+    <input type="number" name="row" id="row" min="1" required>
+    <br><br>
+
+    <label for="seat">Місце:</label>
+    <input type="number" name="seat" id="seat" min="1" required>
+    <br><br>
+
+    <button type="submit">Забронювати</button>
+</form>
+{% endblock %}

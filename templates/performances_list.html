@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Розклад виступів{% endblock %}
+
+{% block content %}
+<h2>Розклад виступів</h2>
+
+<ul>
+    {% for perf in performances %}
+        <li>
+            <strong>{{ perf.play.title }}</strong><br>
+            Зал: {{ perf.theatre_hall.name }}<br>
+            Час: {{ perf.show_time }}
+        </li>
+    {% empty %}
+        <li>Немає запланованих виступів</li>
+    {% endfor %}
+</ul>
+
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <p class="{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}
