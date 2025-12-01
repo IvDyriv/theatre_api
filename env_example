@@ -1,9 +1,9 @@
-SECRET_KEY=django-insecure-4rih*ul_j3h+1!ecs1teivrfp!^fvj
+SECRET_KEY=your-secret-key
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1,localhost
 
 POSTGRES_DB=theatre_db
 POSTGRES_USER=theatre_user
-POSTGRES_PASSWORD=theatre_pass
+POSTGRES_PASSWORD=your-password
 POSTGRES_HOST=db
 POSTGRES_PORT=5432

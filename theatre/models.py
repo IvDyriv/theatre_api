@@ -33,7 +33,7 @@ class Ticket(models.Model):
     reservation = models.ForeignKey(
         Reservation,
         on_delete=models.CASCADE,
-        related_name="tickets"   # ← додаємо
+        related_name="tickets"
     )
     row = models.IntegerField()
     seat = models.IntegerField()

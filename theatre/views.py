@@ -12,7 +12,6 @@ from .models import Play, Performance, Reservation, Ticket
 from .serializers import PlaySerializer, PerformanceSerializer, ReservationSerializer, TicketSerializer
 
 
-# 🎭 Вистави
 class PlayViewSet(viewsets.ModelViewSet):
     queryset = Play.objects.all()
     serializer_class = PlaySerializer
@@ -29,11 +28,10 @@ class PlayViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action in ["create", "update", "partial_update", "destroy"]:
-            return [IsAdminUser()]  # тільки адміністратор
-        return []  # перегляд доступний всім
+            return [IsAdminUser()]
+        return []
 
 
-# 🎟️ Виступи
 class PerformanceViewSet(viewsets.ModelViewSet):
     queryset = Performance.objects.select_related('play', 'theatre_hall').all()
     serializer_class = PerformanceSerializer
@@ -53,7 +51,6 @@ class PerformanceViewSet(viewsets.ModelViewSet):
             return [IsAdminUser()]
         return []
 
-    # 🆕 Ендпоінт: кількість вільних місць
     @action(detail=True, methods=['get'])
     def free_seats_count(self, request, pk=None):
         performance = self.get_object()
@@ -72,7 +69,6 @@ class PerformanceViewSet(viewsets.ModelViewSet):
         })
 
 
-# 📝 Бронювання
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
@@ -85,7 +81,6 @@ class ReservationViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-# 🎫 Квитки
 class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
@@ -99,14 +94,12 @@ class TicketViewSet(viewsets.ModelViewSet):
         row = int(request.data.get("row"))
         seat = int(request.data.get("seat"))
 
-        # 1️⃣ Перевірка чи місце вже зайняте
         if Ticket.objects.filter(performance_id=performance_id, row=row, seat=seat).exists():
             return Response(
                 {"error": "Це місце вже заброньоване."},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # 2️⃣ Перевірка чи місце існує в залі
         performance = get_object_or_404(Performance, id=performance_id)
         hall = performance.theatre_hall
 
@@ -119,43 +112,37 @@ class TicketViewSet(viewsets.ModelViewSet):
         return super().create(request, *args, **kwargs)
 
 
-# 🏠 Головна сторінка
 def home(request):
     return render(request, "home.html")
 
 
-# 🖼 Список вистав
 def plays_list(request):
     plays = Play.objects.all()
     return render(request, "plays_list.html", {"plays": plays})
 
 
-# 🖼 Розклад виступів
 def performances_list(request):
     performances = Performance.objects.select_related("play", "theatre_hall")
     return render(request, "performances_list.html", {"performances": performances})
 
 
-# 🖼 Форма бронювання квитка
 def reservation_form(request):
     performances = Performance.objects.select_related("play", "theatre_hall")
     return render(request, "reservation_form.html", {"performances": performances})
 
 
-# 📝 Реєстрація
 def register(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # автоматично логінить після реєстрації
+            login(request, user)
             return redirect("home")
     else:
         form = RegisterForm()
     return render(request, "register.html", {"form": form})
 
 
-# 📝 Створення бронювання через HTML форму
 @login_required
 def make_reservation(request):
     performances = Performance.objects.select_related("play", "theatre_hall")
@@ -168,21 +155,18 @@ def make_reservation(request):
         performance = get_object_or_404(Performance, id=performance_id)
         hall = performance.theatre_hall
 
-        # 🔴 Перевірка чи місце вже зайняте
         if Ticket.objects.filter(performance=performance, row=row, seat=seat).exists():
             return render(request, "reservation_form.html", {
                 "performances": performances,
                 "error": "Це місце вже заброньоване."
             })
 
-        # 🔴 Перевірка чи місце існує
         if row < 1 or row > hall.rows or seat < 1 or seat > hall.seats_in_row:
             return render(request, "reservation_form.html", {
                 "performances": performances,
                 "error": "Такого місця немає в цьому залі."
             })
 
-        # 🟢 Створення бронювання
         reservation = Reservation.objects.create(user=request.user)
         Ticket.objects.create(
             reservation=reservation,
@@ -200,7 +184,6 @@ def make_reservation(request):
 
 
 
-# 🎟️ Мої бронювання
 @login_required
 def my_reservations(request):
     reservations = Reservation.objects.filter(user=request.user).prefetch_related(

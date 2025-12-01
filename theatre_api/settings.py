@@ -4,7 +4,6 @@ import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Initialize environment variables
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
@@ -20,7 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "theatre",  # твій основний додаток
+    "theatre",
 ]
 
 MIDDLEWARE = [
