@@ -18,7 +18,6 @@ The platform allows users to:
 - Use search, filtering, and pagination for plays and performances 🔍
 - Access an admin panel with advanced filters and relations ⚙️
 
-
 ---
 
 ## 🧑‍💻 Technologies Used
@@ -30,7 +29,6 @@ The platform allows users to:
 - **Pillow** — image upload and processing support  
 - **Pytest** — unit testing framework  
 - **Django Extensions** — database visualization and developer utilities  
-
 
 ---
 
