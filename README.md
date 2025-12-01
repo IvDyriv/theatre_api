@@ -3,7 +3,7 @@
 Theatre API is a Django web application for managing plays, performances, reservations, and tickets.  
 Users can browse the repertoire, check the schedule, reserve seats, and manage their bookings.
 
-## 🧾 Description
+
 
 **Theatre API** is a Django web application designed to manage theatre operations.  
 It provides both a user‑friendly HTML interface and a REST API for working with plays, performances, reservations, and tickets.
@@ -129,11 +129,18 @@ Located in `docs/`
 🛠️ Installation & Usage
 
 1. Clone the repository
+<<<<<<< HEAD
    git clone (https://github.com/IvDyriv/theatre_api)
    cd theatre_api
 
 2. Create .env file
    
+=======
+   git clone https://github.com/IvDyriv/theatre_api)
+   cd theatre_api
+
+2. Create .env file
+>>>>>>> 18a64657df1f0b3f1b55e878d4d0ed6d442289d1
   SECRET_KEY=your-secret-key
   DEBUG=True
   ALLOWED_HOSTS=127.0.0.1,localhost
