@@ -5,7 +5,7 @@ class PlaySerializer(serializers.ModelSerializer):
     genres = serializers.SlugRelatedField(
         many=True,
         read_only=True,
-        slug_field="name"   # повертає назву жанру замість ID
+        slug_field="name"
     )
 
     class Meta:
