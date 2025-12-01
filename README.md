@@ -73,8 +73,6 @@ The platform allows users to:
 - **Unit tests**  
   - Coverage for models and views to ensure reliability  
 
-- **Database diagram and screenshots included**  
-  - Located in `docs/db-diagram.png` and `docs/screenshots/`  
 
 
 ---
@@ -106,7 +104,7 @@ The platform allows users to:
 🛠️ Installation & Usage
 
 1. Clone the repository
-<<<<<<< HEAD
+
    git clone (https://github.com/IvDyriv/theatre_api)
    cd theatre_api
 
