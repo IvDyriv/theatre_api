@@ -4,7 +4,6 @@ Theatre API is a Django web application for managing plays, performances, reserv
 Users can browse the repertoire, check the schedule, reserve seats, and manage their bookings.
 
 
-## 🧾 Description
 
 **Theatre API** is a Django web application designed to manage theatre operations.  
 It provides both a user‑friendly HTML interface and a REST API for working with plays, performances, reservations, and tickets.
@@ -74,19 +73,10 @@ The platform allows users to:
 - **Unit tests**  
   - Coverage for models and views to ensure reliability  
 
-- **Database diagram and screenshots included**  
-  - Located in `docs/db-diagram.png` and `docs/screenshots/`  
 
 
 ---
 
-## 🧠 Database Diagram
-
-Located in `docs/db-diagram.png`
-
-![Database Diagram](docs/db-diagram.png)
-
----
 ## 📖 Usage Examples
 
 ### Web Interface
@@ -101,23 +91,7 @@ Located in `docs/db-diagram.png`
 - `GET /api/performances/` — list all performances  
 - `GET /api/performances/{id}/free_seats_count/` — check available seats for a performance  
 - `POST /api/reservations/` — create a new reservation  
-- `GET /api/tickets/` — view user’s tickets  
----
-
-## 🖼️ Screenshots
-
-Located in `docs/`
-
-| Page                     | Preview                                        |
-|--------------------------|------------------------------------------------|
-| 🏠 **Home**              | ![Home](docs/screens/Home.png)                 |
-| 🔐 **Login page**        | ![Login](docs/screens/Login.png)               |
-| 🧑‍🍳 **My-Reservation** | ![My-Reservation](docs/screens/My-Reservation.png) |
-| ➕ **Performances**       | ![Performances](docs/screens/Performances.png)  |
-| 🍝 **Plays**             | ![Plays](docs/screens/Plays.png)       |
-| 📄 **Register**          | ![Register](docs/screens/Register.png)   |
-| 🧩 **Reservation**       | ![Reservation](docs/screens/Reservation.png)       |
-
+- `GET /api/tickets/` — view user’s tickets
 ---
 ## 🧪 Tests
 
@@ -130,11 +104,16 @@ Located in `docs/`
 🛠️ Installation & Usage
 
 1. Clone the repository
+
    git clone (https://github.com/IvDyriv/theatre_api)
    cd theatre_api
 
 2. Create .env file
-   
+
+   git clone https://github.com/IvDyriv/theatre_api)
+   cd theatre_api
+
+2. Create .env file 18a64657df1f0b3f1b55e878d4d0ed6d442289d1
   SECRET_KEY=your-secret-key
   DEBUG=True
   ALLOWED_HOSTS=127.0.0.1,localhost
