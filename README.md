@@ -34,8 +34,6 @@ The platform allows users to:
 
 ---
 
-
-
 ## ✨ Features
 
 - **Custom user model** based on Django’s `AbstractUser`  
@@ -72,8 +70,6 @@ The platform allows users to:
 
 - **Unit tests**  
   - Coverage for models and views to ensure reliability  
-
-
 
 ---
 
